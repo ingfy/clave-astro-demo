@@ -1,0 +1,15 @@
+---
+import Layout from "../../../layouts/Layout.astro"
+import Greeting from "../../../components/Greeting.astro"
+
+export function getStaticPaths() {
+    return [
+        { params: { thing: "🚗" } },
+        { params: { thing: "🏠" } }
+    ];
+}
+const { thing } = Astro.params;
+---
+<Layout title={thing}>
+    <Greeting name={thing} />
+</Layout>

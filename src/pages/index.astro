@@ -4,13 +4,13 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Astro.js 🚀">
   <ol>
-    <li><a href="/intro">Intro</a> 🚀</li>
-    <li><a href="/komponenter">Komponenter</a> 🧰</li>
-    <li><a href="/markdown">Markdown</a> 📝</li>
-    <li><a href="/routing">Routing</a> 🔀</li>
-    <li><a href="/frontendrammeverk">Frontendrammeverk</a> 🖼</li>
-    <li><a href="/islands">Islands</a> 🏝</li>
-    <li><a href="/tilstand">Tilstand med Nano Stores</a> 🤏</li>
-    <li><a href="/interaktiv-server">Bonus: interaktiv server</a> 👨‍💻</li>
+    <li><a href={`${import.meta.env.BASE_URL}/intro`}>Intro</a> 🚀</li>
+    <li><a href={`${import.meta.env.BASE_URL}/komponenter`}>Komponenter</a> 🧰</li>
+    <li><a href={`${import.meta.env.BASE_URL}/markdown`}>Markdown</a> 📝</li>
+    <li><a href={`${import.meta.env.BASE_URL}/routing`}>Routing</a> 🔀</li>
+    <li><a href={`${import.meta.env.BASE_URL}/frontendrammeverk`}>Frontendrammeverk</a> 🖼</li>
+    <li><a href={`${import.meta.env.BASE_URL}/islands`}>Islands</a> 🏝</li>
+    <li><a href={`${import.meta.env.BASE_URL}/tilstand`}>Tilstand med Nano Stores</a> 🤏</li>
+    <li><a href={`${import.meta.env.BASE_URL}/interaktiv-server`}>Bonus: interaktiv server</a> 👨‍💻</li>
   </ol>
 </Layout>

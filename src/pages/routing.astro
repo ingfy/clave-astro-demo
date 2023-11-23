@@ -5,13 +5,13 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Routing 🔀">
 <p>Filbasert routing</p>
   <ol>
-    <li><a href="/routes/first">Statisk side nummer en</a></li>
-    <li><a href="/routes/second">Og nummer to: filene her er laget på forhånd</a></li>
+    <li><a href={`${import.meta.env.BASE_URL}/routes/first`}>Statisk side nummer en</a></li>
+    <li><a href={`${import.meta.env.BASE_URL}/routes/second`}>Og nummer to: filene her er laget på forhånd</a></li>
     <li>
         Dynamisk routing med flere sider basert på én mal:
         <ol type="a">
-            <li><a href="/routes/dynamic/🚗">Bil</a> 🚗</li>
-            <li><a href="/routes/dynamic/🏠">Hus</a> 🏠</li>
+            <li><a href={`${import.meta.env.BASE_URL}/routes/dynamic/🚗`}>Bil</a> 🚗</li>
+            <li><a href={`${import.meta.env.BASE_URL}/routes/dynamic/🏠`}>Hus</a> 🏠</li>
         </ol>
     </li>
   </ol>

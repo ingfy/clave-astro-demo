@@ -33,7 +33,7 @@ export default function Inbox() {
               </>
             ) : (
               <td colSpan={2}>
-                <button onClick={() => read(message)}>✅</button>
+                <button onClick={() => read(message.id)}>✅</button>
               </td>
             )}
           </tr>

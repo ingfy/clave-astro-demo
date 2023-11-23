@@ -1,23 +1,26 @@
 import { action, atom } from "nanostores";
 
 export interface Message {
+    id: string;
     received: Date;
     sender: string;
     text: string;
     read?: Date;
 }
 
+export type CreateMessage = Omit<Message, "id" | "received" | "read">;
+
 export const $messages = atom<Message[]>([]);
 
-export const read = action($messages, "read", (store, value: Message) => {
+export const read = action($messages, "read", (store, id: string) => {
     store.set(store.get().map(prev => {
-        if (prev === value) return { ...prev, read: new Date() };
+        if (prev.id === id) return { ...prev, read: new Date() };
         return prev;
     }))
     return store.get();
 });
 
-export const send = action($messages, "send", (store, value: Omit<Message, "received" | "read">) => {
-    store.set([...store.get(), { ...value, received: new Date() }]);
+export const send = action($messages, "send", (store, value: CreateMessage) => {
+    store.set([...store.get(), { ...value, received: new Date(), id: crypto.randomUUID() }]);
     return store.get();
 });

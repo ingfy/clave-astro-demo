@@ -1,22 +1,7 @@
 ---
-
+import SendMessageForm from "./SendMessageForm.astro";
 ---
-
-<form>
-  <div>
-    <label>
-      Avsender
-      <input name="sender" />
-    </label>
-  </div>
-  <div>
-    <label>
-      Melding
-      <input name="text" />
-    </label>
-  </div>
-  <button type="submit">Send 📧</button>
-</form>
+<SendMessageForm />
 <script>
   import { send } from "./messages";
   const form = document.querySelector("form");
@@ -34,8 +19,3 @@
     text.value = "";
   });
 </script>
-<style>
-  form div label input {
-    display: block;
-  }
-</style>

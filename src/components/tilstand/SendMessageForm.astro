@@ -1,0 +1,27 @@
+---
+interface Props {
+  method?: string;
+  action?: string;
+}
+const { method, action} = Astro.props;
+---
+<form method={method} action={action}>
+  <div>
+    <label>
+      Avsender
+      <input name="sender" />
+    </label>
+  </div>
+  <div>
+    <label>
+      Melding
+      <input name="text" />
+    </label>
+  </div>
+  <button type="submit">Send 📧</button>
+</form>
+<style>
+  form div label input {
+    display: block;
+  }
+</style>

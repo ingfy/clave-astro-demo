@@ -1,8 +1,65 @@
 ---
+export const prerender = false;
 import Inbox from "../components/tilstand/Inbox";
 import Layout from "../layouts/Layout.astro";
+import { loadDB } from "../helpers/db";
+import SendMessageForm from "../components/tilstand/SendMessageForm.astro";
+
+const db = await loadDB();
 ---
 
 <Layout title="Interaktiv server">
-  <Inbox client:load />
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th colspan={2}>Received</th>
+        <th>Sender</th>
+        <th>Message</th>
+        <th colspan={2}>Read</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        db.messages.length === 0 && (
+          <tr>
+            <td>Tomt! 👐</td>
+          </tr>
+        )
+      }
+      {
+        db.messages.map((message) => (
+          <tr>
+            <td>{message.id.split("-")[0]}</td>
+            <td>{new Date(message.received).toLocaleDateString()}</td>
+            <td>{new Date(message.received).toLocaleTimeString()}</td>
+            <td>{message.sender}</td>
+            <td>{message.text}</td>
+            {message.read ? (
+              <>
+                <td>{new Date(message.read).toLocaleDateString()}</td>
+                <td>{new Date(message.read).toLocaleTimeString()}</td>
+              </>
+            ) : (
+              <td colspan={2}>
+                <form
+                  method="POST"
+                  action={`${import.meta.env.BASE_URL}/api/messages/${
+                    message.id
+                  }/read`}
+                >
+                  <button type="submit">✅</button>
+                </form>
+              </td>
+            )}
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+  <h2>Send til et Endpoint</h2>
+  <SendMessageForm
+    method="POST"
+    action={`${import.meta.env.BASE_URL}/api/messages`}
+  />
 </Layout>

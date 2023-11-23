@@ -1,18 +1,56 @@
 ---
+import { Code } from "astro:components";
+import ReactCounter from "../components/Counter.tsx";
+import SvelteCounter from "../components/Counter.svelte";
 import Layout from "../layouts/Layout.astro";
+import NavigatorInfo from "../components/NavigatorInfo.tsx";
 ---
 
-<Layout title="Routing 🔀">
-<p>Filbasert routing</p>
-  <ol>
-    <li><a href="/routes/first">Statisk side nummer en</a></li>
-    <li><a href="/routes/second">Og nummer to: filene her er laget på forhånd</a></li>
-    <li>
-        Dynamisk routing med flere sider basert på én mal:
-        <ol type="a">
-            <li><a href="/routes/dynamic/🚗">Bil</a> 🚗</li>
-            <li><a href="/routes/dynamic/🏠">Hus</a> 🏠</li>
-        </ol>
-    </li>
-  </ol>
+<Layout title="Frontendrammeverk 🖼">
+  <p>Bruk hvilket frontendrammeverk du vil</p>
+  <h2>React</h2>
+  <Code
+    lang="tsx"
+    code={`import { useState } from "react";
+
+export default function Counter() {
+  const [count, setCount] = useState(0);
+
+  const increment = () => setCount((prev) => prev + 1);
+
+  return <button onClick={increment}>Count: {count}</button>;
+}`}
+  />
+  <p>Kun SSG</p>
+  <Code lang="astro" code="<ReactCounter />" />
+  <ReactCounter />
+  <p>Last inn klientkode med <Code code="client:load" inline />:</p>
+  <Code lang="astro" code="<ReactCounter client:load />" />
+  <ReactCounter client:load />
+  <h2>Svelte</h2>
+  <Code
+    lang="svelte"
+    code={`<script lang="ts">
+  let count = 0;
+
+  function handleClick(event: MouseEvent) {
+    count += 1;
+  }
+</script>
+
+<button on:click={handleClick}>
+  count: {count}
+</button>`}
+  />
+  <p>Kun SSG</p>
+  <Code lang="astro" code="<SvelteCounter />" />
+  <SvelteCounter />
+  <p>Last inn klientkode med <Code code="client:load" inline />:</p>
+  <Code lang="astro" code="<SvelteCounter client:load />" />
+  <SvelteCounter client:load />
+  <h2><Code lang="astro" code="client:only" inline /> ❓</h2>
+  <h3>Server</h3>
+  <NavigatorInfo />
+  <h3>Klient</h3>
+  <NavigatorInfo client:only="react" />
 </Layout>

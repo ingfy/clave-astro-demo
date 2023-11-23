@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import AstroIslandsImage from "../media/astro-islands.png";
+import { Code } from "astro:components";
+---
+
+<Layout title="Islands 🏝">
+  <ul>
+    <li>Isolasjon</li>
+    <li>Flere per side</li>
+    <li>Mix and match rammeverk</li>
+    <li>
+      Direktiver for lazy-loading med <Code
+        inline
+        lang="astro"
+        code="client:lazy"
+      /> etc.
+    </li>
+    <li>Mindre payload per island</li>
+    <li>Ting trenger ikke blokke hverandre</li>
+  </ul>
+  <figure>
+    <Image src={AstroIslandsImage} alt="Øyer" />
+    <figurecaption>Øyer</figurecaption>
+  </figure>
+</Layout>

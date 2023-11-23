@@ -1,0 +1,41 @@
+---
+
+---
+
+<form>
+  <div>
+    <label>
+      Avsender
+      <input name="sender" />
+    </label>
+  </div>
+  <div>
+    <label>
+      Melding
+      <input name="text" />
+    </label>
+  </div>
+  <button type="submit">Send 📧</button>
+</form>
+<script>
+  import { send } from "./messages";
+  const form = document.querySelector("form");
+  form?.addEventListener("submit", function onSend(e) {
+    e.preventDefault();
+    function q(name: string) {
+      const input = form?.querySelector(`[name=${name}]`);
+      if (!input) throw new Error(`No input "${name}" found!`);
+      return input as HTMLInputElement;
+    }
+    const sender = q("sender");
+    const text = q("text");
+    send({ sender: sender.value, text: text.value });
+    sender.value = "";
+    text.value = "";
+  });
+</script>
+<style>
+  form div label input {
+    display: block;
+  }
+</style>

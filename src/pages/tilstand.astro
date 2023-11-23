@@ -1,0 +1,11 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Inbox from "../components/tilstand/Inbox";
+import SendMessage from "../components/tilstand/SendMessage.astro";
+---
+<Layout title="Tilstand med Nano Stores 🤏">
+    <h2>Send melding 🗯</h2>
+    <SendMessage />
+    <h2>Inbox 📥</h2>
+    <Inbox client:load />
+</Layout>

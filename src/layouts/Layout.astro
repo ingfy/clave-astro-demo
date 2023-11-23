@@ -61,7 +61,7 @@ const { title } = Astro.props;
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 100vh;
+        min-height: 100vh;
         font-size: 24px;
       }
       main {
@@ -78,6 +78,22 @@ const { title } = Astro.props;
       }
       pre {
         padding: 12px 24px;
+      }
+      figure {
+        display: flex;
+        flex-direction: column;
+      }
+      figure figurecaption {
+        font-style: italic;
+      }
+      table th, table td {
+        padding-right: 8px;
+      }
+      table th {
+        text-align: left;
+      }
+      button, input {
+        font-size: 24px;
       }
     </style>
   </body>

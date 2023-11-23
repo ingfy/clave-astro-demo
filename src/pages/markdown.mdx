@@ -2,6 +2,7 @@
 layout: ../layouts/MarkdownLayout.astro
 title: Markdown baby 📝
 ---
+import { Code } from "astro:components"
 import Greeting from "../components/Greeting.astro"
 
 1. du burde
@@ -16,6 +17,6 @@ echo "som en kodeblokk" | cowsay
 | ----- | --------- |
 | eller | en tabell |
 
-Eller kanskje til og med et komponent siden vi har støtte for `mdx`:
+Eller kanskje til og med et komponent siden vi har støtte for <Code inline code="mdx" />:
 
 <Greeting name="Mark" />

@@ -10,5 +10,6 @@ export default defineConfig({
   preftch: {
     prefetchAll: true
   },
-  integrations: [mdx(), react(), svelte()]
+  integrations: [mdx(), react(), svelte()],
+  site: "https://ingfy.github.io"
 });

@@ -8,6 +8,7 @@ import NavigatorInfo from "../components/NavigatorInfo.tsx";
 
 <Layout title="Frontendrammeverk 🖼">
   <p>Bruk hvilket frontendrammeverk du vil</p>
+  <hr />
   <h2>React</h2>
   <Code
     lang="tsx"
@@ -23,10 +24,11 @@ export default function Counter() {
   />
   <p>Kun SSG</p>
   <Code lang="astro" code="<ReactCounter />" />
-  <ReactCounter />
+  <p><ReactCounter /></p>
   <p>Last inn klientkode med <Code code="client:load" inline />:</p>
   <Code lang="astro" code="<ReactCounter client:load />" />
-  <ReactCounter client:load />
+  <p><ReactCounter client:load /></p>
+  <hr />
   <h2>Svelte</h2>
   <Code
     lang="svelte"
@@ -44,10 +46,11 @@ export default function Counter() {
   />
   <p>Kun SSG</p>
   <Code lang="astro" code="<SvelteCounter />" />
-  <SvelteCounter />
+  <p><SvelteCounter /></p>
   <p>Last inn klientkode med <Code code="client:load" inline />:</p>
   <Code lang="astro" code="<SvelteCounter client:load />" />
-  <SvelteCounter client:load />
+  <p><SvelteCounter client:load /></p>
+  <hr />
   <h2><Code lang="astro" code="client:only" inline /> ❓</h2>
   <h3>Server</h3>
   <NavigatorInfo />
